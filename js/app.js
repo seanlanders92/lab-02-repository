@@ -36,7 +36,7 @@ function Monster(obj){
 Monster.prototype.render = function(){
     const myTemplate = $('#photo-template').html();
 
-    const $horns = $('<section></section>');
+    const $horns = $('<section></section>').attr('class', this.keyword);
 
     $horns.html(myTemplate);
 
@@ -56,10 +56,27 @@ const menuRender =() => {
     keywordsDropDown.forEach(element => {
 
         let $selectTag = $('<option></option>');
-        $selectTag.attr('id', element).text(element);
+        $selectTag.attr('value', element).text(element);
         $('#menu').append($selectTag);
     })
 }
+
+$('#menu').change(function(){
+    // $(document).ready();
+    //change style
+    // $('section').filter(event.target.value)
+
+
+    if(event.target.value === 'default'){
+        $('section').hide();
+    } else {
+        $('section').hide();
+        $(`.${event.target.value}`).show();
+        // let x = $(e.target.getAttribute('value'))
+        // $(x).show();
+    }
+
+})
 
 
 
