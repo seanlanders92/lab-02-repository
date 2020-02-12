@@ -53,10 +53,10 @@ Monster.prototype.render = function(){
 
 const menuRender =() => {   
 
-    let dropdownOptions = $('#menu');
     keywordsDropDown.forEach(element => {
+
         let $selectTag = $('<option></option>');
-        $selectTag.text(element);
+        $selectTag.attr('id', element).text(element);
         $('#menu').append($selectTag);
     })
 }
