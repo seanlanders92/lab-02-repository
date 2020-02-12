@@ -1,0 +1,13 @@
+body {
+  background-color: #bada55;
+}
+
+section {
+  /* visibility: hidden; */
+  display: none;
+  overflow: hidden;
+}
+img {
+  width: 200px;
+  height: auto;
+}
