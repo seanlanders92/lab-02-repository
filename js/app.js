@@ -3,6 +3,7 @@ $.ajax('data/page-1.json', {method: 'GET', dataType: 'JSON'})
         data.forEach(element => {
             new Monster(element).render();
         })
+        menuRender();
     })
 
  const keywordsDropDown = [];
@@ -20,7 +21,6 @@ $.ajax('data/page-1.json', {method: 'GET', dataType: 'JSON'})
             keywordsDropDown.push(stringValue);
         }
  }
-
 
 function Monster(obj){
     this.image = obj.image_url;
@@ -51,7 +51,15 @@ Monster.prototype.render = function(){
     $('main').append($horns);
 }
 
+const menuRender =() => {   
 
+    let dropdownOptions = $('#menu');
+    keywordsDropDown.forEach(element => {
+        let $selectTag = $('<option></option>');
+        $selectTag.text(element);
+        $('#menu').append($selectTag);
+    })
+}
 
 
 
