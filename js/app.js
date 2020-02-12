@@ -5,6 +5,22 @@ $.ajax('data/page-1.json', {method: 'GET', dataType: 'JSON'})
         })
     })
 
+ const keywordsDropDown = [];
+
+ const keywordsFunction = (stringValue) => {
+     let add = true;
+     keywordsDropDown.forEach(element => {
+         
+         if(element === stringValue){
+            add = false;
+
+        }
+    })
+        if(add === true){
+            keywordsDropDown.push(stringValue);
+        }
+ }
+
 
 function Monster(obj){
     this.image = obj.image_url;
@@ -12,6 +28,9 @@ function Monster(obj){
     this.description = obj.description;
     this.keyword = obj.keyword;
     this.horns = obj.horns;
+
+    keywordsFunction(this.keyword);
+    console.log(keywordsDropDown);
 }
 
 Monster.prototype.render = function(){
